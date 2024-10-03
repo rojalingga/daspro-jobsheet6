@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Pemilihan2Percobaan220 {
     public static void main(String[] args) {
         int pilihanMenu, jml_beli;
-        String member;
-        double harga = 0, diskon = 0;
+        String member,met_bayar;
+        double harga = 0, diskon = 0, totalBayar;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("================ MENU KAFE JTI ================");
@@ -54,8 +54,15 @@ public class Pemilihan2Percobaan220 {
             System.out.println("Member tidak valid");
         }
 
-        double totalBayar = harga - (harga * diskon);
+        totalBayar = harga - (harga * diskon); 
 
+        System.out.print("Metode Pembayaran (Tunai/QRIS) : ");
+        met_bayar = sc.nextLine().toLowerCase();
+
+        if (met_bayar.equals("qris")) {
+            totalBayar -= 1000;       
+        }
+        
         System.out.println("Total Bayar setelah diskon = " + totalBayar);
     }
 }
