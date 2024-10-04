@@ -4,7 +4,7 @@ public class Pemilihan2Percobaan220 {
     public static void main(String[] args) {
         int pilihanMenu, jml_beli;
         String member,met_bayar;
-        double harga = 0, diskon = 0, totalBayar;
+        double harga = 0, diskon = 0, totalBayar, totalBayar_diskon;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("================ MENU KAFE JTI ================");
@@ -54,16 +54,17 @@ public class Pemilihan2Percobaan220 {
             System.out.println("Member tidak valid");
         }
 
-        totalBayar = harga - (harga * diskon); 
+        totalBayar = harga * jml_beli;
+        totalBayar_diskon = totalBayar - (totalBayar * diskon); 
 
         System.out.print("Metode Pembayaran (Tunai/QRIS) : ");
         met_bayar = sc.nextLine().toLowerCase();
 
         if (met_bayar.equals("qris")) {
-            totalBayar -= 1000;       
+            totalBayar_diskon -= 1000;       
         }
         
-        System.out.println("Total Bayar setelah diskon = " + totalBayar);
+        System.out.println("Total Bayar setelah diskon = " + totalBayar_diskon);
     }
 }
 
